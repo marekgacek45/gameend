@@ -1,13 +1,21 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@props(['title', 'description', 'noFollow' => false])
 
-        <title>{{ $title ?? 'Page Title' }}</title>
-        @vite('resources/css/app.css')
-    </head>
-    <body>
-        {{ $slot }}
-    </body>
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    @include('partials.meta')
+    @include('partials.fonts')
+    @include('partials.favicon')
+
+    @vite('resources/css/app.css')
+</head>
+
+<body class="overflow-x-hidden bg-primary-800 font-text text-fontPrimary ">
+    {{ $slot }}
+
+
+    @vite('resources/js/app.js')
+</body>
+
 </html>
