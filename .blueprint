@@ -1,0 +1,39 @@
+created:
+    - database/factories/PostFactory.php
+    - database/factories/MovieFactory.php
+    - database/factories/TopGameFactory.php
+    - database/factories/CompletedGameFactory.php
+    - database/factories/CategoryFactory.php
+    - database/factories/TagFactory.php
+    - database/migrations/2024_07_20_160940_create_posts_table.php
+    - database/migrations/2024_07_20_160941_create_movies_table.php
+    - database/migrations/2024_07_20_160942_create_top_games_table.php
+    - database/migrations/2024_07_20_160943_create_completed_games_table.php
+    - database/migrations/2024_07_20_160944_create_categories_table.php
+    - database/migrations/2024_07_20_160945_create_tags_table.php
+    - database/migrations/2024_07_20_160946_create_category_post_table.php
+    - database/migrations/2024_07_20_160947_create_post_tag_table.php
+    - database/migrations/2024_07_20_160948_create_movie_post_table.php
+    - database/migrations/2024_07_20_160949_create_post_top_game_table.php
+    - database/migrations/2024_07_20_160950_create_completed_game_post_table.php
+    - database/migrations/2024_07_20_160951_create_category_movie_table.php
+    - database/migrations/2024_07_20_160952_create_movie_tag_table.php
+    - database/migrations/2024_07_20_160953_create_movie_top_game_table.php
+    - database/migrations/2024_07_20_160954_create_completed_game_movie_table.php
+    - database/migrations/2024_07_20_160955_create_category_top_game_table.php
+    - database/migrations/2024_07_20_160956_create_tag_top_game_table.php
+    - database/migrations/2024_07_20_160957_create_category_completed_game_table.php
+    - database/migrations/2024_07_20_160958_create_completed_game_tag_table.php
+    - app/Models/Post.php
+    - app/Models/Movie.php
+    - app/Models/TopGame.php
+    - app/Models/CompletedGame.php
+    - app/Models/Category.php
+    - app/Models/Tag.php
+models:
+    Post: { title: 'string unique', slug: string, content: text, thumbnail: text, rating: 'integer nullable', featured: boolean, published_at: datetime, relationships: { belongsToMany: 'Category, Tag, Movie, TopGame, CompletedGame' } }
+    Movie: { title: 'string unique', slug: string, link: text, thumbnail: text, relationships: { belongsToMany: 'Category, Tag, Post, TopGame, CompletedGame' } }
+    TopGame: { title: 'string unique', slug: string, thumbnail: string, relationships: { belongsToMany: 'Category, Tag, Post, Movie' } }
+    CompletedGame: { title: 'string unique', slug: string, thumbnail: string, year: date, relationships: { belongsToMany: 'Category, Tag, Post, Movie' } }
+    Category: { title: 'string unique', slug: string, relationships: { belongsToMany: 'Post, Movie, TopGame, CompletedGame' } }
+    Tag: { title: 'string unique', slug: string, relationships: { belongsToMany: 'Post, Movie, TopGame, CompletedGame' } }

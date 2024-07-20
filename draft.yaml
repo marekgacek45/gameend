@@ -1,0 +1,48 @@
+models:
+  Post:
+    title: string unique
+    slug: string
+    content: text
+    thumbnail: text
+    rating: integer nullable
+    featured: boolean
+    published_at: datetime
+    relationships:
+      belongsToMany: Category, Tag, Movie, TopGame, CompletedGame
+
+  Movie:
+    title: string unique
+    slug: string
+    link: text
+    thumbnail: text
+    relationships:
+      belongsToMany: Category, Tag, Post, TopGame, CompletedGame
+     
+  TopGame:
+    title: string unique
+    slug: string
+    thumbnail: string
+    relationships:
+      belongsToMany: Category, Tag, Post, Movie
+      
+  CompletedGame:
+    title: string unique
+    slug: string
+    thumbnail: string
+    year: date
+    relationships:
+      belongsToMany: Category, Tag, Post, Movie 
+
+  Category:
+    title: string unique
+    slug: string
+    relationships:
+     belongsToMany: Post, Movie, TopGame, CompletedGame
+
+  Tag:
+    title: string unique
+    slug: string
+    relationships:
+      belongsToMany: Post, Movie, TopGame, CompletedGame
+
+ 
