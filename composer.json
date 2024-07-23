@@ -7,9 +7,11 @@
     "require": {
         "php": "^8.2",
         "filament/filament": "^3.2",
+        "joshembling/image-optimizer": "^1.4",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
-        "livewire/livewire": "^3.5"
+        "livewire/livewire": "^3.5",
+        "mokhosh/filament-rating": "^1.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.13",

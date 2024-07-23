@@ -17,7 +17,7 @@ class CompletedGameResource extends Resource
 {
     protected static ?string $model = CompletedGame::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Gry';
 
     public static function form(Form $form): Form
     {

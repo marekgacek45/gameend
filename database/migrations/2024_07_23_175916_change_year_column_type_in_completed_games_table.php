@@ -11,13 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('completed_games', function (Blueprint $table) {
-            $table->id();
-            $table->string('title')->unique();
-            $table->string('slug');
-            $table->string('thumbnail');
-            $table->integer('year');
-            $table->timestamps();
+        Schema::table('completed_games', function (Blueprint $table) {
+            $table->integer('year')->change();
         });
     }
 
@@ -26,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('completed_games');
+        Schema::table('completed_games', function (Blueprint $table) {
+            $table->date('year')->change();
+        });
     }
 };

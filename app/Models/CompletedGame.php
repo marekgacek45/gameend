@@ -20,6 +20,7 @@ class CompletedGame extends Model
         'slug',
         'thumbnail',
         'year',
+        
     ];
 
     /**
@@ -29,7 +30,7 @@ class CompletedGame extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'year' => 'date',
+        'year' => 'integer',
     ];
 
     public function categories(): BelongsToMany

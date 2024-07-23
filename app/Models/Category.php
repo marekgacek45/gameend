@@ -2,8 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Filament\Forms\Set;
+use Illuminate\Support\Str;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Toggle;
 use Illuminate\Database\Eloquent\Model;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Wizard\Step;
+use Filament\Forms\Components\DateTimePicker;
+use Mokhosh\FilamentRating\Components\Rating;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Category extends Model
@@ -48,4 +58,8 @@ class Category extends Model
     {
         return $this->belongsToMany(CompletedGame::class);
     }
+
+
+
+  
 }

@@ -32,8 +32,9 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->passwordReset()
-            ->unsavedChangesAlerts()
+            // ->unsavedChangesAlerts()
             ->sidebarCollapsibleOnDesktop()
+            ->favicon('/favicon/favicon.ico')
             ->brandLogo('/assets/logo.webp')
             ->brandLogoHeight(fn () => auth()->check() ? '40px' : '100px')
             ->colors([
@@ -47,16 +48,16 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
             ])
             ->navigationGroups([
                 NavigationGroup::make()
                      ->label('Treści'),
                 NavigationGroup::make()
-                    ->label('Gry'),
+                    ->label('Gry')
+                    ->icon('heroicon-o-bug-ant'),
                 NavigationGroup::make()
-                    ->label('Kategorie i Tagi'),
+                    ->label('Kategorie i Tagi')
+                    ->collapsed(),
             ])
             ->navigationItems([
                 NavigationItem::make('Strona Główna')

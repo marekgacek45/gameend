@@ -17,7 +17,8 @@ class TopGameResource extends Resource
 {
     protected static ?string $model = TopGame::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Gry';
+
 
     public static function form(Form $form): Form
     {

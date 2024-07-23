@@ -2,41 +2,27 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\MovieResource\Pages;
-use App\Filament\Resources\MovieResource\RelationManagers;
-use App\Models\Movie;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use App\Models\Movie;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\Wizard;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\MovieResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\MovieResource\RelationManagers;
 
 class MovieResource extends Resource
 {
     protected static ?string $model = Movie::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-film';
 
-    public static function form(Form $form): Form
-    {
-        return $form
-            ->schema([
-                Forms\Components\TextInput::make('title')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('slug')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\Textarea::make('link')
-                    ->required()
-                    ->columnSpanFull(),
-                Forms\Components\Textarea::make('thumbnail')
-                    ->required()
-                    ->columnSpanFull(),
-            ]);
-    }
+    protected static ?string $navigationGroup = 'Treści';
+
+  
 
     public static function table(Table $table): Table
     {
@@ -60,6 +46,7 @@ class MovieResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

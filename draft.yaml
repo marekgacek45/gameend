@@ -7,6 +7,7 @@ models:
     rating: integer nullable
     featured: boolean
     published_at: datetime
+    gallery: text
     relationships:
       belongsToMany: Category, Tag, Movie, TopGame, CompletedGame
 
@@ -29,19 +30,21 @@ models:
     title: string unique
     slug: string
     thumbnail: string
-    year: date
+    year: year
     relationships:
       belongsToMany: Category, Tag, Post, Movie 
 
   Category:
     title: string unique
     slug: string
+    thumbnail: text
     relationships:
      belongsToMany: Post, Movie, TopGame, CompletedGame
 
   Tag:
     title: string unique
     slug: string
+    thumbnail: text
     relationships:
       belongsToMany: Post, Movie, TopGame, CompletedGame
 
