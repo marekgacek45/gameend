@@ -23,17 +23,7 @@ class TopGameResource extends Resource
     public static function form(Form $form): Form
     {
         return $form
-            ->schema([
-                Forms\Components\TextInput::make('title')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('slug')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('thumbnail')
-                    ->required()
-                    ->maxLength(255),
-            ]);
+            ->schema(TopGame::getForm());
     }
 
     public static function table(Table $table): Table
@@ -60,6 +50,7 @@ class TopGameResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -68,12 +59,7 @@ class TopGameResource extends Resource
             ]);
     }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
+  
 
     public static function getPages(): array
     {
@@ -82,5 +68,19 @@ class TopGameResource extends Resource
             'create' => Pages\CreateTopGame::route('/create'),
             'edit' => Pages\EditTopGame::route('/{record}/edit'),
         ];
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return ('Top Games');
+    }
+    public static function getPluralLabel(): string
+    {
+        return ('Top Games');
+    }
+
+    public static function getLabel(): string
+    {
+        return ('Top Game');
     }
 }

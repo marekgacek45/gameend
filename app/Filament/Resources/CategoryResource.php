@@ -25,14 +25,7 @@ class CategoryResource extends Resource
     public static function form(Form $form): Form
     {
         return $form
-            ->schema([
-                Forms\Components\TextInput::make('title')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('slug')
-                    ->required()
-                    ->maxLength(255),
-            ]);
+            ->schema(Category::getForm());
     }
 
     public static function table(Table $table): Table
@@ -57,6 +50,7 @@ class CategoryResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -81,5 +75,17 @@ class CategoryResource extends Resource
         ];
     }
 
-    
+    public static function getNavigationLabel(): string
+    {
+        return ('Kategorie');
+    }
+    public static function getPluralLabel(): string
+    {
+        return ('Kategorie');
+    }
+
+    public static function getLabel(): string
+    {
+        return ('Kategoria');
+    }
 }

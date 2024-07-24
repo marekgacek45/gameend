@@ -113,7 +113,7 @@ class Post extends Model
                         FileUpload::make('thumbnail')
                             ->required()
                             ->label('Miniaturka')
-                            ->directory('thumbnails')
+                            ->directory('thumbnails-post')
                             ->image()
                             ->maxSize(4096)
                             ->optimize('webp')
@@ -161,7 +161,7 @@ class Post extends Model
                             ->preload()
                             ->searchable()
                             ->required()
-                            // ->createOptionForm(Category::getForm())
+                            ->createOptionForm(Category::getForm())
                             ->placeholder('Mozesz wybrac kilka'),
                         Select::make('tag_id')
                             ->label('Tag')
@@ -169,7 +169,7 @@ class Post extends Model
                             ->multiple()
                             ->preload()
                             ->searchable()
-                            // ->createOptionForm(Category::getForm())
+                            ->createOptionForm(Tag::getForm())
                             ->placeholder('Mozesz wybrac kilka'),
                         Select::make('completed_game_id')
                             ->label('Ukończona gra')
@@ -184,7 +184,7 @@ class Post extends Model
                             ->multiple()
                             ->preload()
                             ->searchable()
-                            // ->createOptionForm(Category::getForm())
+                            ->createOptionForm(CompletedGame::getForm())
                             ->placeholder('Mozesz wybrac kilka'),
                         Select::make('top_game_id')
                             ->label('Top of the Top')
@@ -192,7 +192,7 @@ class Post extends Model
                             ->multiple()
                             ->preload()
                             ->searchable()
-                            // ->createOptionForm(Category::getForm())
+                            ->createOptionForm(TopGame::getForm())
                             ->placeholder('Mozesz wybrac kilka'),
                         Select::make('movie_id')
                             ->label('Filmy')
@@ -200,7 +200,7 @@ class Post extends Model
                             ->multiple()
                             ->preload()
                             ->searchable()
-                            // ->createOptionForm(Category::getForm())
+                            ->createOptionForm(Movie::getForm())
                             ->columnSpanFull()
                             ->placeholder('Mozesz wybrac kilka'),
                     ]),

@@ -2,13 +2,12 @@
 
 namespace App\Filament\Resources;
 
-use Filament\Forms;
+
 use Filament\Tables;
 use App\Models\Movie;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
-use Filament\Forms\Components\Wizard;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\MovieResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -22,7 +21,13 @@ class MovieResource extends Resource
 
     protected static ?string $navigationGroup = 'Treści';
 
-  
+
+    public static function form(Form $form): Form
+    {
+        return $form
+            ->schema(Movie::getForm());
+    }
+
 
     public static function table(Table $table): Table
     {
@@ -55,12 +60,6 @@ class MovieResource extends Resource
             ]);
     }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
 
     public static function getPages(): array
     {
@@ -69,5 +68,19 @@ class MovieResource extends Resource
             'create' => Pages\CreateMovie::route('/create'),
             'edit' => Pages\EditMovie::route('/{record}/edit'),
         ];
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return ('Filmy');
+    }
+    public static function getPluralLabel(): string
+    {
+        return ('Filmy');
+    }
+
+    public static function getLabel(): string
+    {
+        return ('Film');
     }
 }
