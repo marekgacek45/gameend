@@ -96,11 +96,13 @@ class Movie extends Model
                     '16:9',
                     '4:3',
                     '1:1',
-                ]),
+                ])
+                ->columnSpanFull(),
             TextInput::make('link')
                 ->label('Link')
                 ->required()
-                ->url(),
+                ->url()
+                ->columnSpanFull(),
             Fieldset::make('Powiązania')
                 ->schema([
                     Select::make('category_id')

@@ -2,9 +2,19 @@
 
 namespace App\Providers;
 
+use App\Models\Tag;
 use App\Models\Post;
+use App\Models\Movie;
+use App\Models\TopGame;
+use App\Models\Category;
+use App\Models\CompletedGame;
+use App\Observers\TagObserver;
 use App\Observers\PostObserver;
+use App\Observers\MovieObserver;
+use App\Observers\TopGameObserver;
+use App\Observers\CategoryObserver;
 use Illuminate\Support\ServiceProvider;
+use App\Observers\CompletedGameObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,6 +31,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-       Post::observe(PostObserver::class);
+        Category::observe(CategoryObserver::class);
+        CompletedGame::observe(CompletedGameObserver::class);
+        Movie::observe(MovieObserver::class);
+        Post::observe(PostObserver::class);
+        Tag::observe(TagObserver::class);
+        TopGame::observe(TopGameObserver::class);
     }
 }

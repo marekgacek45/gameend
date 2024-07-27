@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use App\Models\Movie;
 use Filament\Forms\Set;
 use Illuminate\Support\Str;
 use Filament\Forms\Components\Select;
