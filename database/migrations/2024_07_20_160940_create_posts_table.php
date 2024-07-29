@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('slug');
             $table->text('content');
             $table->text('thumbnail');
-            // $table->json('gallery');
+            $table->json('gallery')->nullable();
             $table->integer('rating')->nullable();
             $table->boolean('featured')->default(0);
             $table->dateTime('published_at');

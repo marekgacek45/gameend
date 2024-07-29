@@ -145,7 +145,7 @@ class Post extends Model
                                 '4:3',
                                 '1:1',
                             ])
-                            ->required()
+                            
                             ->columnSpanFull(),
 
 

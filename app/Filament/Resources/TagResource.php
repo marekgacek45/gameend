@@ -2,16 +2,17 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\TagResource\Pages;
-use App\Filament\Resources\TagResource\RelationManagers;
 use App\Models\Tag;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Illuminate\Support\Carbon;
+use Filament\Resources\Resource;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\TagResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\TagResource\RelationManagers;
 
 class TagResource extends Resource
 {
@@ -29,18 +30,35 @@ class TagResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+
+            ->defaultSort('posts_count', 'asc')
             ->columns([
+                Tables\Columns\ImageColumn::make('thumbnail')
+                    ->label('Miniaturka')
+                    ->circular(),
                 Tables\Columns\TextColumn::make('title')
+                    ->label('Tytuł')
+                    ->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('slug')
-                    ->searchable(),
+                Tables\Columns\TextColumn::make('posts_count')
+                    ->label('Liczba postów')
+                    ->counts('posts')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label('Data utworzenia')
                     ->dateTime()
                     ->sortable()
+                    ->formatStateUsing(function ($state) {
+                        return Carbon::parse($state)->format('d-m-Y');
+                    })
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label('Data modyfikacji')
                     ->dateTime()
                     ->sortable()
+                    ->formatStateUsing(function ($state) {
+                        return Carbon::parse($state)->format('d-m-Y');
+                    })
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
@@ -57,7 +75,7 @@ class TagResource extends Resource
             ]);
     }
 
- 
+
 
     public static function getPages(): array
     {

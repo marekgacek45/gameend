@@ -91,4 +91,11 @@ class Category extends Model
                 ]),
         ];
     }
+
+    // METHODS
+    public function getImageUrlAttribute()
+    {
+        // Zwraca URL do obrazu kategorii
+        return $this->attributes['image_url'];
+    }
 }

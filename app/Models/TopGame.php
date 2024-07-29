@@ -81,7 +81,7 @@ class TopGame extends Model
             FileUpload::make('thumbnail')
                 ->required()
                 ->label('Miniaturka')
-                ->directory('thumbnails-games')
+                ->directory('thumbnails-top-games')
                 ->image()
                 ->maxSize(4096)
                 ->optimize('webp')
