@@ -2,9 +2,10 @@
 
 namespace App\Filament\Resources\TopGameResource\Pages;
 
-use App\Filament\Resources\TopGameResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
+use App\Filament\Resources\TopGameResource;
+use App\Filament\Resources\TopGameResource\Widgets\TopGamesOverview;
 
 class ListTopGames extends ListRecords
 {
@@ -14,6 +15,15 @@ class ListTopGames extends ListRecords
     {
         return [
             Actions\CreateAction::make(),
+        ];
+    }
+
+
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            
+            TopGamesOverview::class,
         ];
     }
 }
