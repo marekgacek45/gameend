@@ -1,3 +1,15 @@
+@import'hamburger.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.rounded-var{
+    @apply rounded-2xl;
+}
+
+
+.link-hover {
+    @apply relative w-fit block after:block after:content-[''] after:absolute after:h-[1px]  after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center after:border-dashed after:border-b after:border-secondary-200 hover:text-secondary-200 duration-500;
+}
