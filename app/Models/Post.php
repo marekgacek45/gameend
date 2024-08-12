@@ -215,4 +215,19 @@ class Post extends Model
                             ])  
         ];
     }
+    
+    // METHODS
+
+    public function scopePublished($query)
+    {
+        $query->where('published_at', '<=', Carbon::now())
+             ;
+    }
+
+      
+      public function getThumbnailUrl() : string
+      {
+          
+          return  asset('storage/' . $this->thumbnail);
+      }
 }

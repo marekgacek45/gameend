@@ -1,5 +1,5 @@
 <nav
-    class="flex justify-between items-center  max-w-screen-max mx-auto px-6 xs:px-12 sm:px-16 py-4 bg-primary-400 rounded-var shadow-2xl">
+    class="flex justify-between items-center  max-w-screen-max mx-auto px-6 xs:px-12 sm:px-16 py-4 bg-primary-400 rounded-2xl shadow-2xl">
     <div class="flex items-center gap-16">
 
         <x-shared.nav.logo-link />

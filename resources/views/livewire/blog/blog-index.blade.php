@@ -1,5 +1,80 @@
-<div>
+<div class="flex py-8 px-8  gap-8">
+    {{-- FILTERS --}}
+<div class="w-2/12 ] space-y-6">
+    {{-- Categories --}}
+    <x-filter-box title="Kategorie" >
 
-    <p>test</p>
-<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium cumque libero inventore illo non magnam fuga et ullam explicabo magni. Illo consequuntur quo excepturi commodi eligendi natus deleniti eius quod. Culpa in voluptas officiis dicta reiciendis perferendis quam beatae ipsum illo earum veniam nemo sint fugit fugiat tempora ab eligendi sunt dolores quasi voluptatum, quas porro nam doloribus. Totam tenetur quaerat, obcaecati nulla unde quod nostrum ipsa quia distinctio ullam, dicta sequi error repellat. Asperiores laborum aut, ipsam modi quia fuga ipsa assumenda maxime velit tempora placeat alias. Molestias temporibus quibusdam ipsam doloremque, quos, quo harum voluptatum laboriosam dignissimos repudiandae unde, corrupti dolore? Necessitatibus asperiores optio pariatur, explicabo molestiae, nostrum quidem suscipit non impedit deserunt accusamus. Rerum voluptatem possimus maiores! Dolorum natus mollitia minima sit excepturi, soluta, consequuntur a quasi qui ducimus beatae maiores ipsam. Quidem odio voluptatibus, sapiente pariatur impedit cum laborum provident! Molestiae error, id autem nam esse dolor architecto ullam velit provident magnam possimus itaque quia impedit, praesentium nulla ipsam enim placeat eos sequi similique perferendis a quidem eaque illum. Minima cumque vel iusto voluptatem blanditiis doloremque dolorum? Distinctio, aperiam dicta? Voluptatibus itaque impedit corrupti beatae nobis amet perferendis laborum praesentium, porro error excepturi accusamus ex, sequi natus vitae tenetur nostrum suscipit explicabo quidem. Fugit amet quis placeat magnam repudiandae sit debitis cumque, dolores recusandae, incidunt commodi adipisci, laboriosam dolorum. Vitae hic totam repellat ducimus neque accusantium molestias consequuntur, quisquam sint doloribus! Molestias nisi deleniti hic molestiae tenetur excepturi ipsa asperiores velit dolore esse nesciunt doloribus magni, explicabo consequatur eum! Voluptatibus rerum soluta fugiat in commodi dolor quod illo aliquid voluptate, nihil eaque rem fugit ipsam laborum corrupti nam, doloremque saepe. Nisi, adipisci asperiores enim illum suscipit optio possimus laudantium? Fugit optio obcaecati labore. Modi minus quae, porro asperiores beatae ad tenetur esse ut perferendis totam facere corrupti molestiae necessitatibus veritatis rem quas nobis mollitia vero magnam. Voluptatum, soluta dolorem ab aliquid doloribus nobis voluptas tempora minus earum eligendi consequatur perferendis modi praesentium! Laborum iste harum obcaecati, dignissimos deserunt nostrum fugiat, iusto ea recusandae est expedita deleniti? Fuga vel dignissimos sequi qui dicta distinctio minima labore nemo dolore sed quaerat consectetur nesciunt reiciendis, soluta, modi recusandae totam aperiam velit. Odio reiciendis ipsam nemo pariatur totam cupiditate? Aliquid facere maxime et placeat facilis! Consequuntur, itaque eum esse obcaecati recusandae ex ab laborum beatae quo nemo sint cupiditate eius tempora, voluptatum, accusantium est iure voluptas. Vel quaerat, error perspiciatis nam accusamus consequuntur tempora earum corporis voluptatum velit repellat exercitationem accusantium ab dolore fugiat nobis possimus eum a expedita cumque incidunt. Voluptas, itaque dolor! Illum fugit minima cumque error praesentium odit! Facilis dolor, similique perferendis repellendus repudiandae harum expedita distinctio natus officia officiis vel eius animi excepturi modi adipisci aliquid veritatis tempore cum laboriosam culpa necessitatibus ex cupiditate? Explicabo aspernatur sint nostrum quidem architecto quia illo natus obcaecati delectus ut velit error, optio facilis asperiores fuga quam, nisi nobis maiores culpa eaque! Exercitationem dolorem asperiores excepturi, amet sint similique natus culpa fuga assumenda corrupti eos provident velit pariatur tenetur quidem possimus ex alias modi ipsum magni aperiam saepe animi porro? Esse dignissimos mollitia ipsum rerum nesciunt hic optio ex quos, officia assumenda doloremque sit cum voluptatem labore suscipit sunt eaque nisi. Labore voluptate perspiciatis eos, placeat natus laudantium excepturi quas asperiores. Velit laborum pariatur corporis aut dolores aperiam aliquam illum vero? Enim minus distinctio eaque necessitatibus hic quod quia accusantium aliquam temporibus reprehenderit illo eius architecto culpa molestiae, ipsam obcaecati quisquam fugiat consectetur dolorem voluptates voluptas ad? Nulla sint veniam a iure ipsa quod quis reiciendis cupiditate aliquam ut vitae, eos dolores vel laudantium maxime veritatis pariatur officia corporis, rem, ipsum eum deleniti labore? A exercitationem officia repudiandae omnis voluptatibus ratione aliquid eos. Ipsa ab cumque nemo necessitatibus. Veniam officiis magnam vel exercitationem. Iure enim sed labore, nesciunt itaque tempore nam porro laudantium illo magnam nulla! Nulla, unde ex eligendi ipsam perferendis sed, vel impedit quod ipsa recusandae, deserunt blanditiis consequuntur debitis? Velit architecto sapiente officiis obcaecati eius error tempore voluptatum doloremque vero illum, atque fuga dolorum ex minus iure fugit mollitia repudiandae modi accusamus quibusdam blanditiis perferendis dolor. Laboriosam, obcaecati? Quas animi asperiores quisquam et sapiente dignissimos expedita inventore consequatur ipsam minus maxime, quasi ad ea labore voluptatum cupiditate facilis voluptatem rerum nihil aut veniam praesentium possimus doloremque quis. Qui, nesciunt provident sapiente nam minus debitis, odio et nostrum quod dicta soluta! Architecto illum ea est. At ratione necessitatibus perspiciatis ullam, exercitationem cupiditate in recusandae harum facere unde quia. Eveniet odit in perspiciatis sapiente aliquam dignissimos fugit delectus molestiae eos asperiores nam, temporibus facilis consectetur, sunt repudiandae omnis aliquid harum. Ad omnis soluta, beatae velit neque vel recusandae dolore facilis praesentium corrupti laudantium qui expedita adipisci ipsum, consectetur iure vitae! Sequi quisquam corporis deserunt facilis unde, nisi nihil praesentium quibusdam atque laborum. Distinctio dolor earum aut inventore quos, corrupti ex sint esse eveniet eum vel nostrum ea numquam optio dolore, corporis aperiam perspiciatis vero autem voluptas, quae dignissimos sequi nisi. Optio doloribus et voluptatibus aspernatur officia exercitationem atque odio labore consectetur excepturi, unde perferendis reprehenderit provident natus nulla temporibus tempora. Accusamus animi tempore porro facere quia natus? Molestias ut ipsa sint mollitia esse. Qui fugit molestiae porro repudiandae incidunt vitae libero quibusdam ullam molestias, et sit totam impedit unde, hic, commodi modi at velit doloremque adipisci perspiciatis. Quia quae corrupti aut officiis perspiciatis doloribus fugit praesentium? Consequatur quas facere aspernatur libero eveniet fuga, iste doloribus quasi quibusdam, harum, optio obcaecati labore est dignissimos quod saepe odit. Iure sapiente nemo est suscipit, enim nihil eligendi explicabo incidunt iusto mollitia ut, eveniet, sint reiciendis exercitationem unde voluptate! Odit molestias possimus fugiat temporibus nihil aspernatur fuga voluptas repellendus blanditiis exercitationem eos nemo quam magni eaque adipisci iste cupiditate, impedit, sint, optio neque eveniet provident doloremque! Voluptate voluptatum quia obcaecati saepe iste eius harum earum dolor delectus! Quod perspiciatis fugiat nobis consequuntur in consequatur, architecto dolor nihil tempore perferendis facere molestiae dicta a quam nesciunt, dolore dignissimos temporibus totam voluptatem soluta? Expedita molestiae, maxime magnam maiores nesciunt quae, minus facere asperiores nulla perferendis officia fugiat dicta voluptatum repudiandae, est ipsam error odit. Inventore illum, odit omnis aut obcaecati amet earum. Cumque dolore dolorem porro possimus impedit? Inventore, maxime quasi! Officiis vel dolores aspernatur. Error id, accusamus culpa eligendi voluptatum consectetur libero sapiente sunt deleniti incidunt sit provident itaque atque qui vitae repellat aperiam voluptatem saepe architecto repudiandae vel reiciendis asperiores. Optio, error aliquam tempora fuga sed repellendus rem harum cumque quibusdam exercitationem ullam? Corporis iure asperiores inventore. Dolore, praesentium quasi! Et in, molestiae aperiam quia iusto architecto totam ad iure sed quas placeat sunt nemo voluptatibus culpa dolorum dignissimos minus nobis neque ipsam.</p>
+        @foreach($this->categories as $category)
+       <x-filter-item  :key="'category-' . $category->id" :item="$category" href="#"/>
+        @endforeach
+      </x-filter-box>
+      {{-- Tags --}}
+    <x-filter-box title="Tagi">
+
+        @foreach($this->tags as $tag)
+       <x-filter-item  :key="'tag-' . $tag->id" :item="$tag" href="#"/>
+        @endforeach
+      </x-filter-box>
+</div>
+ {{-- CONTENT --}}
+<div class="w-8/12 ">
+<header class="h-[30vh] bg-yellow-300 rounded-xl">
+   <div>
+
+   </div>
+</header>
+<main>
+    <div class="flex justify-between">
+        <div>
+
+            <h2>Artykuły</h2><span>{{$this->posts->count()}}</span>
+        </div>
+<div>
+    szukaj
+</div>
+
+    </div>
+
+    <div class="grid grid-cols-3">
+        @foreach($this->posts as $post)
+        <x-base.card>
+            <div>
+                <img src="{{asset($post->getThumbnailUrl())}}" alt="miniaturka artykułu o tytule {{$post->title}}" class="w-full h-full rounded-xl object-cover">
+            </div>
+            <div>
+                @php
+                $category = $post->categories->first();
+            @endphp
+            
+            @if($category)
+                <p>{{ $category->title }}</p>
+            @else
+                <p>Brak kategorii</p> <!-- lub inny komunikat, który chcesz wyświetlić -->
+            @endif
+                <h2>{{$post->title}}</h2>
+            </div>
+        </x-base.card>
+        @endforeach
+    </div
+
+</main>
+</div>
+    {{-- FILTERS --}}
+    <div class="w-2/12 space-y-6">
+        {{-- Categories --}}
+        <x-filter-box title="Ukończone gry">
+    
+            @foreach($this->completedGames as $game)
+           <x-filter-item  :key="'completed-game-' . $game->id" :item="$game" href="#"/>
+            @endforeach
+          </x-filter-box>
+          {{-- Tags --}}
+        <x-filter-box title="Top of the Top">
+    
+            @foreach($this->topGames as $game)
+           <x-filter-item  :key="'top-game-' . $game->id" :item="$game" href="#"/>
+            @endforeach
+          </x-filter-box>
+    </div>
+  
 </div>

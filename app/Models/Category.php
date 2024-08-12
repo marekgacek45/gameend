@@ -93,9 +93,9 @@ class Category extends Model
     }
 
     // METHODS
-    public function getImageUrlAttribute()
+    public function getThumbnailUrl() : string
     {
-        // Zwraca URL do obrazu kategorii
-        return $this->attributes['image_url'];
+        
+        return  asset('storage/' . $this->thumbnail);
     }
 }

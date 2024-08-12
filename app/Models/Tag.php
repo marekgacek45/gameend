@@ -89,4 +89,11 @@ class Tag extends Model
                 ]),
         ];
     }
+
+    // METHODS
+    public function getThumbnailUrl() : string
+    {
+        
+        return  asset('storage/' . $this->thumbnail);
+    }
 }
