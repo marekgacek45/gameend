@@ -40,9 +40,21 @@ class BlogIndex extends Component
     }
 
     #[Computed]
+    public function getFeaturedPostsProperty()
+    {
+        return Post::published()->where('featured', true)->orderBy('published_at', 'desc')->get();
+    }
+
+    #[Computed]
     public function getPostsProperty()
     {
-        return Post::with('categories')->published()->paginate(6);
+        return Post::with('categories')->published()->orderBy('published_at', 'desc')->paginate(6);
+    }
+
+    #[Computed]
+    public function getPostsCountProperty()
+    {
+        return Post::published()->count();
     }
 
 
