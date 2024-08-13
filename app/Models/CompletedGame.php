@@ -102,23 +102,6 @@ class CompletedGame extends Model
                 ->default(Carbon::now()->year),
                 Fieldset::make('Powiązania')
                 ->schema([
-                    Select::make('category_id')
-                        ->label('Kategoria')
-                        ->relationship('categories', 'title',)
-                        ->multiple()
-                        ->preload()
-                        ->searchable()
-                        ->required()
-                        ->createOptionForm(Category::getForm())
-                        ->placeholder('Mozesz wybrac kilka'),
-                    Select::make('tag_id')
-                        ->label('Tag')
-                        ->relationship('tags', 'title',)
-                        ->multiple()
-                        ->preload()
-                        ->searchable()
-                        ->createOptionForm(Tag::getForm())
-                        ->placeholder('Mozesz wybrac kilka'),
                     Select::make('movie_id')
                         ->label('Filmy')
                         ->relationship('movies', 'title')
@@ -128,7 +111,6 @@ class CompletedGame extends Model
                         ->searchable()
                         ->placeholder('Mozesz wybrac kilka')
                         ,
-
                     Select::make('post_id')
                         ->label('Posty')
                         ->relationship('posts', 'title',)

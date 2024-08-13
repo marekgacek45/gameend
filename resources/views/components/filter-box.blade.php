@@ -1,6 +1,6 @@
 
 
-<x-base.card class="max-h-[50vh]">
+<x-base.card class="">
     
     <h2 class="text-lg font-semibold">{{$title}} </h2>
     

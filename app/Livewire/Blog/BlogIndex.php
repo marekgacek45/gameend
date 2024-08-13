@@ -21,28 +21,45 @@ class BlogIndex extends Component
     #[Computed]
     public function getCategoriesProperty()
     {
-        return Category::has('posts')->get();
+        return Category::withCount('posts')
+            ->having('posts_count', '>', 0)
+            ->orderBy('posts_count', 'desc')
+            ->take(5)
+            ->get();
     }
     #[Computed]
     public function getTagsProperty()
     {
-        return Tag::has('posts')->get();
+        return Tag::withCount('posts')
+            ->having('posts_count', '>', 0)
+            ->orderBy('posts_count', 'desc')
+            ->take(5)
+            ->get();
     }
     #[Computed]
     public function getCompletedGamesProperty()
     {
-        return CompletedGame::has('posts')->get();
+        return CompletedGame::has('posts')
+            ->orderBy('created_at', 'desc')
+            ->take(5)
+            ->get();;
     }
     #[Computed]
     public function getTopGamesProperty()
     {
-        return TopGame::has('posts')->get();
+        return TopGame::has('posts')
+            ->orderBy('created_at', 'desc')
+            ->take(5)
+            ->get();
     }
 
     #[Computed]
     public function getFeaturedPostsProperty()
     {
-        return Post::published()->where('featured', true)->orderBy('published_at', 'desc')->get();
+        return Post::published()
+            ->where('featured', true)
+            ->orderBy('published_at', 'desc')
+            ->get();
     }
 
     #[Computed]

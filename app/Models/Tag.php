@@ -22,6 +22,7 @@ class Tag extends Model
     protected $fillable = [
         'title',
         'slug',
+        'thumbnail',
     ];
 
     /**
@@ -76,7 +77,7 @@ class Tag extends Model
             FileUpload::make('thumbnail')
                 ->required()
                 ->label('Miniaturka')
-                ->directory('thumbnails-categories')
+                ->directory('thumbnails-tags')
                 ->image()
                 ->maxSize(4096)
                 ->optimize('webp')
