@@ -10,7 +10,7 @@ $scrollIntoViewJsSnippet = ($scrollTo !== false)
     : '';
 @endphp
 
-<div class="px-12 md:px-0 pt-8">
+<div class="px-6 sm:px-12 md:px-0 pt-8">
     @if ($paginator->hasPages())
         <nav role="navigation" aria-label="Pagination Navigation" class="flex items-center justify-between">
             <div class="flex justify-between flex-1 sm:hidden">

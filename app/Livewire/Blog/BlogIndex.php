@@ -7,9 +7,10 @@ use App\Models\Post;
 use App\Models\TopGame;
 use Livewire\Component;
 use App\Models\Category;
+use Livewire\Attributes\Url;
+use Livewire\WithPagination;
 use App\Models\CompletedGame;
 use Livewire\Attributes\Computed;
-use Livewire\WithPagination;
 
 class BlogIndex extends Component
 {
@@ -17,6 +18,22 @@ class BlogIndex extends Component
     use  WithPagination;
     public $title = 'Strona z postami';
     public $description = 'meta desc strona z posatami';
+
+    #[Url]
+    public $category = '';
+
+    #[Url]
+    public $tag = '';
+    #[Url]
+    public $topGame = '';
+    #[Url]
+    public $completedGame = '';
+
+
+
+
+    #[Url]
+    public $search;
 
     #[Computed]
     public function getCategoriesProperty()
@@ -65,7 +82,23 @@ class BlogIndex extends Component
     #[Computed]
     public function getPostsProperty()
     {
-        return Post::with('categories')->published()->orderBy('published_at', 'desc')->paginate(6);
+        return Post::with('categories')
+            ->when($this->category, function ($query) {
+                $query->whereHas('categories', function ($query) {
+                    $query->where('slug', $this->category);
+                });
+            })
+            ->when($this->tag, function ($query) {
+                $query->whereHas('tags', function ($query) {
+                    $query->where('slug', $this->tag);
+                });
+            })
+            ->whereRaw('LOWER(title) like ?', ["%" . strtolower($this->search) . "%"])
+
+
+            ->published()
+            ->orderBy('published_at', 'desc')
+            ->paginate(6);
     }
 
     #[Computed]
