@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Livewire\Blog;
+namespace App\Livewire\CompletedGame;
 
-use App\Models\Tag;
 use App\Models\Post;
 use App\Models\TopGame;
 use Livewire\Component;
@@ -12,12 +11,12 @@ use Livewire\WithPagination;
 use App\Models\CompletedGame;
 use Livewire\Attributes\Computed;
 
-class BlogIndex extends Component
+class CompletedGameIndex extends Component
 {
 
     use  WithPagination;
-    public $title = 'Strona z postami';
-    public $description = 'meta desc strona z posatami';
+    public $title = 'Strona ukoczone gry';
+    public $description = 'meta desc ukoczone gry';
 
     #[Url]
     public $category = '';
@@ -25,9 +24,6 @@ class BlogIndex extends Component
     public $topGame = '';
     #[Url]
     public $completedGame = '';
-
-
-
 
     #[Url]
     public $search = "";
@@ -58,13 +54,14 @@ class BlogIndex extends Component
             ->get();
     }
 
-    #[Computed]
+#[Computed]
     public function getFeaturedPostsProperty()
     {
         return Post::published()
-            ->where('featured', true)
-            ->orderBy('published_at', 'desc')
-            ->get();
+        ->where('featured', true)
+        ->whereHas('completedGames')
+        ->orderBy('published_at', 'desc')
+        ->get();
     }
 
     #[Computed]
@@ -76,10 +73,8 @@ class BlogIndex extends Component
                     $query->where('slug', $this->category);
                 });
             })
-          
+            ->whereHas('completedGames') // Dodajemy warunek na relację
             ->whereRaw('LOWER(title) like ?', ["%" . strtolower($this->search) . "%"])
-
-
             ->published()
             ->orderBy('published_at', 'desc')
             ->paginate(6);
@@ -88,13 +83,14 @@ class BlogIndex extends Component
     #[Computed]
     public function getPostsCountProperty()
     {
-        return Post::published()->count();
+       return Post::whereHas('completedGames') 
+        ->published()
+        ->count();
     }
-
 
     public function render()
     {
-        return view('livewire.blog.blog-index')->layout('components.layouts.app', [
+        return view('livewire.completed-games.completed-games-index')->layout('components.layouts.app', [
             'title' => $this->title,
             'description' => $this->description,
         ]);

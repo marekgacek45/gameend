@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Livewire\Blog;
+namespace App\Livewire\TopGames;
 
-use App\Models\Tag;
 use App\Models\Post;
 use App\Models\TopGame;
 use Livewire\Component;
@@ -12,12 +11,12 @@ use Livewire\WithPagination;
 use App\Models\CompletedGame;
 use Livewire\Attributes\Computed;
 
-class BlogIndex extends Component
+class TopGamesIndex extends Component
 {
 
     use  WithPagination;
-    public $title = 'Strona z postami';
-    public $description = 'meta desc strona z posatami';
+    public $title = 'Strona topowe gry';
+    public $description = 'meta desc topowe gry';
 
     #[Url]
     public $category = '';
@@ -25,9 +24,6 @@ class BlogIndex extends Component
     public $topGame = '';
     #[Url]
     public $completedGame = '';
-
-
-
 
     #[Url]
     public $search = "";
@@ -62,9 +58,10 @@ class BlogIndex extends Component
     public function getFeaturedPostsProperty()
     {
         return Post::published()
-            ->where('featured', true)
-            ->orderBy('published_at', 'desc')
-            ->get();
+        ->where('featured', true)
+        ->whereHas('topGames') // 
+        ->orderBy('published_at', 'desc')
+        ->get();
     }
 
     #[Computed]
@@ -76,10 +73,8 @@ class BlogIndex extends Component
                     $query->where('slug', $this->category);
                 });
             })
-          
+            ->whereHas('topGames') 
             ->whereRaw('LOWER(title) like ?', ["%" . strtolower($this->search) . "%"])
-
-
             ->published()
             ->orderBy('published_at', 'desc')
             ->paginate(6);
@@ -88,15 +83,16 @@ class BlogIndex extends Component
     #[Computed]
     public function getPostsCountProperty()
     {
-        return Post::published()->count();
+       return Post::whereHas('topGames') 
+        ->published()
+        ->count();
     }
-
 
     public function render()
     {
-        return view('livewire.blog.blog-index')->layout('components.layouts.app', [
+        return view('livewire.top-games.top-games-index')->layout('components.layouts.app', [
             'title' => $this->title,
             'description' => $this->description,
-        ]);
+        ]);;
     }
 }

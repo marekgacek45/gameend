@@ -42,6 +42,7 @@
     {{-- CONTENT --}}
     <div class="w-full xl:w-9/12 space-y-12 ">
 
+        
         <header class="swiper featured-posts-slider h-[75vh]  sm:h-[55vh]  rounded-xl group">
             <div class="swiper-wrapper">
                 @foreach ($this->featuredPosts as $post)
@@ -95,6 +96,8 @@
 
             <div class="grid  md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
                 @foreach($this->posts as $post)
+
+                
                 <div class="group bg-primary-400 rounded-xl  hover:shadow-2xl duration-500 p-0">
 
                     {{-- THUMBNAIL --}}

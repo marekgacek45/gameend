@@ -124,9 +124,11 @@ class CompletedGame extends Model
         ];
     }
       // METHODS
-      public function getThumbnailUrl() : string
+      public function getThumbnailUrl(): string
       {
-          
+  
           return  asset('storage/' . $this->thumbnail);
       }
+  
+  
 }
