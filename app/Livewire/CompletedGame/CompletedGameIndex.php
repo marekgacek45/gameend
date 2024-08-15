@@ -28,6 +28,11 @@ class CompletedGameIndex extends Component
     #[Url]
     public $search = "";
 
+    public function setCategory($categorySlug)
+    {
+        $this->category = $categorySlug;
+    }
+
     #[Computed]
     public function getCategoriesProperty()
     {

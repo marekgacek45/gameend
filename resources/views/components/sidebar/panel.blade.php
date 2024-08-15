@@ -1,6 +1,4 @@
-
-
-<x-base.card class="">
+<x-base.card>
     
     <h2 class="text-lg font-semibold">{{$title}} </h2>
     

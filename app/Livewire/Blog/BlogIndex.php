@@ -22,15 +22,19 @@ class BlogIndex extends Component
     #[Url]
     public $category = '';
     #[Url]
-    public $topGame = '';
-    #[Url]
-    public $completedGame = '';
-
-
-
-
-    #[Url]
     public $search = "";
+
+    public function setCategory($categorySlug)
+    {
+        $this->category = $categorySlug;
+    }
+
+    public function clear()
+    {
+        $this->category = "";
+        $this->search = "";
+    }
+
 
     #[Computed]
     public function getCategoriesProperty()
@@ -88,7 +92,15 @@ class BlogIndex extends Component
     #[Computed]
     public function getPostsCountProperty()
     {
-        return Post::published()->count();
+        return Post::with('categories')
+        ->when($this->category, function ($query) {
+            $query->whereHas('categories', function ($query) {
+                $query->where('slug', $this->category);
+            });
+        })
+        ->whereRaw('LOWER(title) like ?', ["%" . strtolower($this->search) . "%"])
+        ->published()
+        ->count();
     }
 
 

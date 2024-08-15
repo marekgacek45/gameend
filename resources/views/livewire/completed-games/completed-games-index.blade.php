@@ -11,7 +11,7 @@
 
 
         </x-filter-box>
-      
+
         {{-- Completed Games --}}
         <x-filter-box title="Ukończone gry">
 
@@ -42,7 +42,7 @@
     {{-- CONTENT --}}
     <div class="w-full xl:w-9/12 space-y-12 ">
 
-        
+
         <header class="swiper featured-posts-slider h-[75vh]  sm:h-[55vh]  rounded-xl group">
             <div class="swiper-wrapper">
                 @foreach ($this->featuredPosts as $post)
@@ -56,7 +56,8 @@
                             {{$post->title}}
                         </h1>
                         <p class="line-clamp-4 2xl:line-clamp-none text-lg">{{$post->getExcerpt()}}</p>
-                        <x-base.link-btn class="self-start mt-4 " href="{{route('post.show', $post->slug)}}">Zobacz</x-base.link-btn>
+                        <x-base.link-btn class="self-start mt-4 " href="{{route('post.show', $post->slug)}}">Zobacz
+                        </x-base.link-btn>
                     </div>
                 </div>
 
@@ -70,12 +71,13 @@
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="flex  items-end gap-3">
                     @if($this->category !== "" || $this->search !== "")
-                    <a href="{{route('home')}}" class="hover:scale-110 hover:text-secondary-400 duration-500 "><x-healthicons-o-cleaning class="w-8"/>
+                    <a href="{{route('home')}}" class="hover:scale-110 hover:text-secondary-400 duration-500 ">
+                        <x-healthicons-o-cleaning class="w-8" />
                     </a>
                     @endif
                     <h2 class="text-4xl 2xl:text-5xl  font-semibold">Artykuły</h2><span
                         class="text-lg 2xl:text-xl text-gray-400">({{$this->postsCount}})</span>
-                    
+
                 </div>
 
                 <div id="search-box" class="flex flex-col items-center px-2 my-4 justify-center mr-[10px] md:mr-0">
@@ -97,7 +99,7 @@
             <div class="grid  md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
                 @foreach($this->posts as $post)
 
-                
+
                 <div class="group bg-primary-400 rounded-xl  hover:shadow-2xl duration-500 p-0">
 
                     {{-- THUMBNAIL --}}
@@ -140,6 +142,6 @@
             {{$this->posts->links('vendor.livewire.tailwind')}}
         </main>
     </div>
-   
+
 
 </div>
