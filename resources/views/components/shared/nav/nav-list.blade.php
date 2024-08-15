@@ -7,8 +7,8 @@
         Posty
     </x-shared.nav.nav-item>
 
-    <x-shared.nav.nav-item href="#"
-        class="{{ Route::currentRouteName() === 'video.index' ? 'text-secondary-400' : '' }}">
+    <x-shared.nav.nav-item href="{{ route('movie.index') }}"
+        class="{{ Route::currentRouteName() === 'movie.index' ? 'text-secondary-400' : '' }}">
         Filmy
     </x-shared.nav.nav-item>
 

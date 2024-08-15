@@ -157,4 +157,17 @@ class Movie extends Model
 
         ];
     }
+
+    // METHODS
+
+    public function getThumbnailUrl(): string
+    {
+
+        return  asset('storage/' . $this->thumbnail);
+    }
+
+    public function getExcerpt()
+    {
+        return  str_replace(['"', "'"], '', substr(html_entity_decode(strip_tags($this->content)), 0, 300)) . '...';
+    }
 }

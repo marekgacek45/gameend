@@ -49,7 +49,7 @@ class CompletedGameIndex extends Component
         return CompletedGame::has('posts')
             ->orderBy('created_at', 'desc')
             ->take(6)
-            ->get();;
+            ->get();
     }
     #[Computed]
     public function getTopGamesProperty()

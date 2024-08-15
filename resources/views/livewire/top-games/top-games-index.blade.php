@@ -12,12 +12,12 @@
         <div id="post-list" class="space-y-10">
 
             {{-- header --}}
-            <x-post-list-header />
+            <x-item-list-header title="Artykuły" itemCount="{{$this->postsCount}}"/>
 
             {{-- grid --}}
             <div class="grid  md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
                 @foreach($this->posts as $post)
-                <x-post-card :post="$post" />
+                <x-item-card :item="$post" />
                 @endforeach
             </div>
 

@@ -1,3 +1,5 @@
+@props(['title' => '', 'itemCount'])
+
 <header class="flex flex-col md:flex-row justify-between items-center">
     {{-- title && clear btn --}}
     <div class="flex  items-end gap-3">
@@ -6,8 +8,8 @@
             <x-healthicons-o-cleaning class="w-8" />
         </button>
         @endif
-        <h2 class="text-4xl 2xl:text-5xl  font-semibold">Artykuły</h2><span
-            class="text-lg 2xl:text-xl text-gray-400">({{$this->postsCount}})</span>
+        <h2 class="text-4xl 2xl:text-5xl  font-semibold">{{$title}}</h2><span
+            class="text-lg 2xl:text-xl text-gray-400">({{$itemCount}})</span>
 
     </div>
     {{-- search box --}}
