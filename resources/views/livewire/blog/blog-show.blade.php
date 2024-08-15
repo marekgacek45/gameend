@@ -1,4 +1,4 @@
-<main class=" py-8 px-2 md:px-8 space-y-24">
+<main class=" py-8 px-2 md:px-8 space-y-24 max-w-screen-max mx-auto">
 <article class="space-y-16">
     <header class="max-w-screen-2xl mx-auto flex flex-col  justify-center items-center gap-12">
         <div class="overflow-hidden w-full rounded-xl">

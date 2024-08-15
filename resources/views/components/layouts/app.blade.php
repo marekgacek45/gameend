@@ -20,7 +20,7 @@
 
     {{ $slot }}
 
-
+<x-shared.footer />
 
 </body>
 

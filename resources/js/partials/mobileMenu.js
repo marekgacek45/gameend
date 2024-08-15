@@ -1,3 +1,5 @@
+document.addEventListener("livewire:navigated", () => {
+
 const hamburger = document.querySelector(".hamburger");
 const mobileMenu = document.querySelector(".mobile-menu");
 const body = document.querySelector("body");
@@ -9,3 +11,4 @@ const hamburgerHandler = () => {
 };
 
 hamburger.addEventListener("click", hamburgerHandler);
+});

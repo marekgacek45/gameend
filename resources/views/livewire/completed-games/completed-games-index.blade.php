@@ -1,4 +1,4 @@
-<main class="flex py-8 px-2 md:px-8  gap-8">
+<main class="flex py-8 px-2 md:px-8  gap-8 max-w-screen-max mx-auto">
     {{-- FILTERS --}}
     <x-sidebar.aside :categories="$this->categories" :completedGames="$this->completedGames"
         :topGames="$this->topGames" />
