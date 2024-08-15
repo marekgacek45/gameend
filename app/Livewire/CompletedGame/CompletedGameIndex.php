@@ -21,11 +21,6 @@ class CompletedGameIndex extends Component
     #[Url]
     public $category = '';
     #[Url]
-    public $topGame = '';
-    #[Url]
-    public $completedGame = '';
-
-    #[Url]
     public $search = "";
 
     public function setCategory($categorySlug)
@@ -33,13 +28,19 @@ class CompletedGameIndex extends Component
         $this->category = $categorySlug;
     }
 
+    public function clear()
+    {
+        $this->category = "";
+        $this->search = "";
+    }
+
     #[Computed]
     public function getCategoriesProperty()
     {
-        return Category::withCount('posts')
+        return Category::whereHas('posts.completedGames')
+            ->withCount('posts')
             ->having('posts_count', '>', 0)
             ->orderBy('posts_count', 'desc')
-            
             ->get();
     }
     #[Computed]
@@ -59,14 +60,14 @@ class CompletedGameIndex extends Component
             ->get();
     }
 
-#[Computed]
+    #[Computed]
     public function getFeaturedPostsProperty()
     {
         return Post::published()
-        ->where('featured', true)
-        ->whereHas('completedGames')
-        ->orderBy('published_at', 'desc')
-        ->get();
+            ->where('featured', true)
+            ->whereHas('completedGames')
+            ->orderBy('published_at', 'desc')
+            ->get();
     }
 
     #[Computed]
@@ -78,7 +79,7 @@ class CompletedGameIndex extends Component
                     $query->where('slug', $this->category);
                 });
             })
-            ->whereHas('completedGames') // Dodajemy warunek na relację
+            ->whereHas('completedGames') 
             ->whereRaw('LOWER(title) like ?', ["%" . strtolower($this->search) . "%"])
             ->published()
             ->orderBy('published_at', 'desc')
@@ -88,9 +89,28 @@ class CompletedGameIndex extends Component
     #[Computed]
     public function getPostsCountProperty()
     {
-       return Post::whereHas('completedGames') 
+        return Post::with('categories')
+        ->when($this->category, function ($query) {
+            $query->whereHas('categories', function ($query) {
+                $query->where('slug', $this->category);
+            });
+        })
+        ->whereHas('completedGames') 
+        ->whereRaw('LOWER(title) like ?', ["%" . strtolower($this->search) . "%"])
         ->published()
         ->count();
+    }
+
+    #[Computed]
+
+    public function getPostCountByCategory($categorySlug)
+    {
+        return Post::whereHas('categories', function ($query) use ($categorySlug) {
+            $query->where('slug', $categorySlug);
+        })
+            ->whereHas('completedGames') // Upewnij się, że liczymy tylko zakończone gry
+            ->published()
+            ->count();
     }
 
     public function render()

@@ -21,21 +21,27 @@ class TopGamesIndex extends Component
     #[Url]
     public $category = '';
     #[Url]
-    public $topGame = '';
-    #[Url]
-    public $completedGame = '';
-
-    #[Url]
     public $search = "";
+
+    public function setCategory($categorySlug)
+    {
+        $this->category = $categorySlug;
+    }
+
+    public function clear()
+    {
+        $this->category = "";
+        $this->search = "";
+    }
 
     #[Computed]
     public function getCategoriesProperty()
     {
-        return Category::withCount('posts')
-            ->having('posts_count', '>', 0)
-            ->orderBy('posts_count', 'desc')
-            
-            ->get();
+        return Category::whereHas('posts.topGames')
+        ->withCount('posts')
+        ->having('posts_count', '>', 0)
+        ->orderBy('posts_count', 'desc')
+        ->get();
     }
     #[Computed]
     public function getCompletedGamesProperty()
@@ -83,9 +89,28 @@ class TopGamesIndex extends Component
     #[Computed]
     public function getPostsCountProperty()
     {
-       return Post::whereHas('topGames') 
-        ->published()
-        ->count();
+        return Post::with('categories')
+            ->when($this->category, function ($query) {
+                $query->whereHas('categories', function ($query) {
+                    $query->where('slug', $this->category);
+                });
+            })
+            ->whereHas('topGames') 
+            ->whereRaw('LOWER(title) like ?', ["%" . strtolower($this->search) . "%"])
+            ->published()
+            ->count();
+    }
+
+    #[Computed]
+
+    public function getPostCountByCategory($categorySlug)
+    {
+        return Post::whereHas('categories', function ($query) use ($categorySlug) {
+            $query->where('slug', $categorySlug);
+        })
+            ->whereHas('topGames') 
+            ->published()
+            ->count();
     }
 
     public function render()

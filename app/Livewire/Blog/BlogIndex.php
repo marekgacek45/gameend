@@ -42,7 +42,7 @@ class BlogIndex extends Component
         return Category::withCount('posts')
             ->having('posts_count', '>', 0)
             ->orderBy('posts_count', 'desc')
-            
+
             ->get();
     }
     #[Computed]
@@ -80,7 +80,7 @@ class BlogIndex extends Component
                     $query->where('slug', $this->category);
                 });
             })
-          
+
             ->whereRaw('LOWER(title) like ?', ["%" . strtolower($this->search) . "%"])
 
 
@@ -93,14 +93,25 @@ class BlogIndex extends Component
     public function getPostsCountProperty()
     {
         return Post::with('categories')
-        ->when($this->category, function ($query) {
-            $query->whereHas('categories', function ($query) {
-                $query->where('slug', $this->category);
-            });
+            ->when($this->category, function ($query) {
+                $query->whereHas('categories', function ($query) {
+                    $query->where('slug', $this->category);
+                });
+            })
+            ->whereRaw('LOWER(title) like ?', ["%" . strtolower($this->search) . "%"])
+            ->published()
+            ->count();
+    }
+
+    #[Computed]
+    public function getPostCountByCategory($categorySlug)
+    {
+        return Post::whereHas('categories', function ($query) use ($categorySlug) {
+            $query->where('slug', $categorySlug);
         })
-        ->whereRaw('LOWER(title) like ?', ["%" . strtolower($this->search) . "%"])
-        ->published()
-        ->count();
+            
+            ->published()
+            ->count();
     }
 
 

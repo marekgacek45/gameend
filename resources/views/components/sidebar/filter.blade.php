@@ -9,7 +9,7 @@
         <h3 class="line-clamp-1">{{ $item->title }}</h3>
     </div>
 
-    <span class="font-semibold">{{ $item->posts->count() }}</span>
+    <span class="font-semibold">{{ $this->getPostCountByCategory($item->slug) }}</span>
 
 
 </li>
