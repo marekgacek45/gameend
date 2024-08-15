@@ -2,8 +2,8 @@
 
 <ul class="{{$class}} mb-[4px] ">
 
-    <x-shared.nav.nav-item href="{{ route('post.index') }}"
-        class="{{ Route::currentRouteName() === 'post.index' ? 'text-secondary-400' : '' }}">
+    <x-shared.nav.nav-item href="{{ route('blog.index') }}"
+        class="{{ Route::currentRouteName() === 'blog.index' ? 'text-secondary-400' : '' }}">
         Posty
     </x-shared.nav.nav-item>
 
@@ -12,13 +12,13 @@
         Filmy
     </x-shared.nav.nav-item>
 
-    <x-shared.nav.nav-item href="{{ route('topOfTheTop.post.index') }}"
-        class="{{ Route::currentRouteName() === 'topOfTheTop.post.index' ? 'text-secondary-400' : '' }}">
+    <x-shared.nav.nav-item href="{{ route('topOfTheTop.blog.index') }}"
+        class="{{ Route::currentRouteName() === 'topOfTheTop.blog.index' ? 'text-secondary-400' : '' }}">
         Top Games
     </x-shared.nav.nav-item>
 
-    <x-shared.nav.nav-item href="{{ route('completedGames.post.index') }}"
-        class="{{ Route::currentRouteName() === 'completedGames.post.index' ? 'text-secondary-400' : '' }}">
+    <x-shared.nav.nav-item href="{{ route('completedGames.blog.index') }}"
+        class="{{ Route::currentRouteName() === 'completedGames.blog.index' ? 'text-secondary-400' : '' }}">
         Ukończone gry
     </x-shared.nav.nav-item>
 

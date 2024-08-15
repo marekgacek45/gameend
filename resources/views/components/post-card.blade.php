@@ -21,14 +21,14 @@
             {{-- links--categories --}}
             <div class="flex justify-start items-center gap-4 mt-2">
                 @foreach ($post->categories as $category)
-                <button type='button' wire:click="setCategory('{{$category->slug}}')" aria-label="wybierz kategorię"><img
-                        src="{{asset($category->getThumbnailUrl())}}"
+                <button type='button' wire:click="setCategory('{{$category->slug}}')"
+                    aria-label="wybierz kategorię"><img src="{{asset($category->getThumbnailUrl())}}"
                         alt="miniaturka artykułu o tytule {{$post->title}}"
                         class="w-7 h-7 rounded-xl object-cover hover:scale-110 duration-500"></button>
                 @endforeach
             </div>
             {{-- links--post-show --}}
-                <x-base.link-btn small href="{{route('post.show', $post->slug)}}">Czytaj</x-base.link-btn>
+            <x-base.link-btn small href="{{route('blog.show', $post->slug)}}">Czytaj</x-base.link-btn>
         </div>
     </div>
 

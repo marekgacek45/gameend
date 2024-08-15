@@ -233,4 +233,9 @@ class Post extends Model
     {
         return  str_replace(['"', "'"], '', substr(html_entity_decode(strip_tags($this->content)), 0, 300)) . '...';
     }
+
+    public function getPublishedDate()
+    {
+        return  $this->published_at->diffForHumans();
+    }
 }

@@ -12,12 +12,12 @@
     <x-sidebar.panel title="Ukończone gry">
 
         @foreach($completedGames as $index => $game)
-        <x-sidebar.link :item="$game" href="{{route('post.show', $game->slug)}}" />
+        <x-sidebar.link :item="$game" href="{{route('blog.show', $game->slug)}}" />
 
         @if (($index + 1) % 6 == 0)
         <li class="w-full flex justify-center">
-            <x-base.link-btn small href="{{route('completedGames.post.index')}}">Zobacz wszystkie</x-base.link-btn>
-            </li>
+            <x-base.link-btn small href="{{route('completedGames.blog.index')}}">Zobacz wszystkie</x-base.link-btn>
+        </li>
         @endif
         @endforeach
     </x-sidebar.panel>
@@ -25,11 +25,11 @@
     <x-sidebar.panel title="Top of the Top">
 
         @foreach($topGames as $index => $game)
-        <x-sidebar.link  :item="$game" href="{{route('post.show', $game->slug)}}" />
+        <x-sidebar.link :item="$game" href="{{route('blog.show', $game->slug)}}" />
 
         @if (($index + 1) % 6 == 0)
         <li class="w-full flex justify-center">
-        <x-base.link-btn small href="{{route('topOfTheTop.post.index')}}">Zobacz wszystkie</x-base.link-btn>
+            <x-base.link-btn small href="{{route('topOfTheTop.blog.index')}}">Zobacz wszystkie</x-base.link-btn>
         </li>
         @endif
         @endforeach
