@@ -64,7 +64,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
         
         @foreach ($latestPosts as $post)
-        <x-post-card :post="$post" />
+        <x-item-card :item="$post" />
         @endforeach
     </div>
 </div>
